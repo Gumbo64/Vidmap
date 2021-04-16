@@ -1,0 +1,46 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^12.0.0",
+    "@homee/react-native-mapbox-navigation": "^1.0.5",
+    "@react-native-async-storage/async-storage": "^1.14.1",
+    "@react-native-community/async-storage": "~1.12.0",
+    "@react-native-community/geolocation": "^2.0.2",
+    "@voximplant/react-native-foreground-service": "^2.0.0",
+    "expo": "^41.0.0",
+    "expo-constants": "~9.3.3",
+    "expo-location": "~10.0.0",
+    "expo-random": "~10.0.0",
+    "expo-status-bar": "~1.0.3",
+    "moment": "^2.29.1",
+    "prop-types": "16.0.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-app-auth": "^6.2.0",
+    "react-native-blank-spacer": "^0.0.2",
+    "react-native-geolocation-service": "^5.2.0",
+    "react-native-map-clustering": "^3.4.2",
+    "react-native-map-location": "^1.0.1",
+    "react-native-maps": "0.27.1",
+    "react-native-paper": "*",
+    "react-native-permissions": "^3.0.1",
+    "react-native-spotify-remote": "^0.3.5",
+    "react-native-status-bar-height": "^2.6.0",
+    "react-native-web": "~0.13.12",
+    "react-native-webview": "11.0.0",
+    "react-native-youtube-iframe": "^2.0.0",
+    "unimodules-permissions-interface": "^6.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0"
+  },
+  "private": true
+}

@@ -1,0 +1,1 @@
+create table markertable (id text, latitude NUMERIC(8,5),longitude NUMERIC(8,5),videoID text, title text,time timestamptz DEFAULT NOW());
