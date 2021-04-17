@@ -16,8 +16,8 @@ const pool = new Pool({
 
 function shorten(string){
   // max length
-  let length = 25
-  let trimmedString = string.length > length ? string.substring(0, length - 3) + "..." : string.substring(0, length); 
+  let length = 200
+  let trimmedString = string.length > length ? string.substring(0, length) + "..." : string.substring(0, length); 
   return trimmedString
 }
 

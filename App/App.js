@@ -3,8 +3,7 @@ import BlankSpacer from "react-native-blank-spacer";
 import YoutubePlayer from "react-native-youtube-iframe";
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Platform, Alert, Text, Image, View, StyleSheet, Dimensions} from 'react-native';
-import Constants from 'expo-constants';
+import { Alert, Text, Image, View, StyleSheet, Dimensions} from 'react-native';
 import * as Location from 'expo-location';
 
 
@@ -133,8 +132,7 @@ export default function App() {
       // console.log('outside async')
       (async () => {
         let templocation = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.High});
-        // once the location is recieved, it uses setLocation which triggers another render, looping indefinitely and will keep updating location which is what we want
-        
+
         setLocation(latlong(parseFloat(JSON.stringify(templocation.coords.latitude)),parseFloat(JSON.stringify(templocation.coords.longitude))));
         
       })();
@@ -244,8 +242,19 @@ export default function App() {
           <Portal>
           <FAB.Group
             open={open}
-            icon={open ? 'map-marker-plus' : 'plus'}
+            icon={open ? 'close' : 'plus'}
+            label = {'Add a marker'}
             actions={[
+              {
+                icon: 'map-marker-plus',
+                label: 'Submit new marker',
+                onPress: () => {
+                  selectinglocation = true
+                  setformlocation(location)
+                  setformlink('')
+                  setformtitle('')
+                },
+              },
               {
                 icon: 'map-marker-circle',
                 label: 'Go to current location',
@@ -264,15 +273,7 @@ export default function App() {
               },
             ]}
             onStateChange={FABStateChange}
-            onPress={() => {
-              if (open) {
-                // when the button is clicked again
-                selectinglocation = true
-                setformlocation(location)
-                setformlink('')
-                setformtitle('')
-              }
-            }}
+
           />
         </Portal>
 
@@ -285,6 +286,7 @@ export default function App() {
     
     return (
       <Provider>
+        <BlankSpacer height={getStatusBarHeight()}/>
         <Appbar.Header>
           <Appbar.BackAction onPress={()=>{selectinglocation = false; reRender()}} />
           <Appbar.Content title="Submit a new marker" subtitle="Click on the map or hold on marker to move" />
@@ -323,7 +325,7 @@ export default function App() {
           label="Marker title"
           value={formtitle}
           onChangeText={formtitle => setformtitle(formtitle)}
-          maxLength={25}
+          maxLength={200}
         />
         <TextInput 
           label="Youtube link e.g. https://youtu.be/yh59FEUOWxQ"
@@ -369,29 +371,4 @@ const styles = StyleSheet.create({
     height:Dimensions.get('window').height/3,
   },
   
-  // above: {
-  //   width: Dimensions.get('window').width,
-  //   height: Dimensions.get('window').height,
-    
-  //   position: 'absolute',
-  //   bottom: 0,
-  //   right: 0,
-  //   // margin:15,
-  //   zIndex: 10,
-  //   elevation: 10,
-
-  // },
-  // actionbutton: {
-
-  //   height: 100,
-  //   width: 100,
-  //   borderRadius: 50,
-  //   position: 'absolute',
-  //   bottom: 0,
-  //   right: 0,
-  //   margin:15,
-  //   zIndex: 10,
-
-
-  // },
 });

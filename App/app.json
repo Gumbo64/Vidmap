@@ -20,11 +20,17 @@
       "supportsTablet": true
     },
     "android": {
+      "config":{
+        "googleMaps":{
+          "apiKey":"AIzaSyBmXf1YBvuOX3yU5tPdaa5wg9kYB4ggBZ8"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.vidmap.a"
+      "package": "com.gumbo64.vidmap"
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
